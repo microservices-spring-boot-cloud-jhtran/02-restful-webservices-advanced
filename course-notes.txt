@@ -1,0 +1,121 @@
+Web Service by W3C
+- a software system designed to support interoperable mathine-to-machine interaction over a network
+
+3 Keys:
+1) designed for machine-to-machine (or applicatoin-to-application) interaction
+2) should be interoperable, not platform dependent
+3) should allow communication over a network
+
+How does data exchange between applications take place?
+- with Requests to the WebService and Rseponses form the WebService
+
+How can we make web services platform independent?
+- to be platform independent, the Request & Response should be in a format that is platform indepenedent
+  - XML and JSON
+
+How does an Application know the format of the Request & Response?
+ans: A service definition offered by every WebService 
+Service Definition specifies:
+1) Request/Response format - XML or JSON
+2) Request structure
+3) Response structure
+4) Endpoint - how to call the service, where the service is available
+
+Key Terminology
+- Request & Response: input to a web service & output of a web service 
+- Message Exchange format
+  - XML & JSON
+- Service Provider/Server: the service provider is the one which hosts the web service  
+- Service Consumer/Client: the service/application using a web service and consuming data  
+- Service Definition: the contract between the Service Provider and Service Consumer
+- Transport: defines how a service is called either over the web or exposed over a queue
+  - HTTP, over the web 
+  - MQ, communication over a queue
+    - service requester places message in queue
+    - service provider listens to queue and, as soon as there's a request in queue process it
+    - puts response back into queue
+    - finally, service requester gets response from queue
+    - Structure: Envelope containing Header, and Body
+      - Header contains meta data like authentication, authorization, signatures, etc.
+      - Body is where the actual content of request or response is
+
+Different Kinds/Types/Groups of Web Services, Envelope-Header-Body
+- SOAP & REST are not really comparable to each other they are different concepts
+
+All about adhering to SOAP XML structure
+- SOAP-based, places restrictions on the XML format exchanged between service provider and service consumer 
+  - defines a specific way of building web services
+  - XML is the request echange format
+  - SOAP has a specific XML request/response structure
+  - can transport over HTTP or MQ
+  - Service Definition: WSDL (Web Service Definition Language)
+    - defines the endpoint, alkl the operations that are exposed, specifies request/response structure
+
+- REST-styled, defines an architectural approach
+  - REpresentational State Transfer, by Roy Fielding who developed HTTP protocol
+  - tries to make the best use of HTTP
+  - HTTP Request Methods: GET, POST, PUT, DELETE
+  - HTTP Response Status Codes
+Key Abstraction of REST - Resource
+- resource is anything you want to expose to the outside world through your application
+- when talking about RESTful services we're always thinking about resources
+  - each resource is assigned a URI (Uniform Resource Identifier)
+  - a resource can have different representations:
+    - XML, HTML, JSON
+- Data Exchange Format for REST:
+  - No restriction, JSON is popular
+  - Transport: Only HTTP 
+  - Service Definition: no standard WADL/Swagger/etc...
+
+REST vs SOAP
+
+1: How are requests handled?
+- all requests, in regards to Spring MVC, are handled by the DispatcherServlet (Front Controller Pattern)
+  - DispatcherServlet is the first thing that our request goes to irrespective of the URL we're making use of 
+  - this is because the DispatcherServlet is mapped to the root URL 
+  - once the dispatcher servlet gets the request it maps it to the proper controller 
+- Spring Boot App automatically configures the DispatcherServlet 
+
+Path Parameters
+"/users/{id}/todos/{id}
+
+HTTP Method PATCH - use to update part of an existing resource 
+When talking about REST API we're talking about resources and about what actions we can perform
+
+Important Response Statuses
+200 - Success
+201 - Created
+204 - No Content
+400 - Bad Request (ie. validation error)
+401 - Unauthorized (ie. failed authorization)
+404 - Resource Not Found
+500 - Server Error
+
+when running the application in production we'll likely run it as a JAR file 
+- when running a packaged application DevTools is automatically disabled.
+
+Creating custom structure for Custom Error Response *(important for enterprises)
+- define bean for custom Error Response structure 
+
+@Valid 
+- when using the @Valid annotation during binding
+  - the defined validations are automatically invoked on the object
+
+We should always be thinking from the perspective of consumers
+- improve our response messages
+- improve our response statuses
+
+Advanced REST API Features
+- Documentation
+- Content Negotiation
+- Internationalization - i18n
+- Versioning
+- HATEOAS
+- Static and Dynamic Filtering
+- Monitoring
+
+REST API Documentation 
+- our REST API consumers need to understand our REST API 
+  - resources
+  - actions 
+  - request/response structure (constraints/validations)
