@@ -1,0 +1,40 @@
+Advanced REST API Features
+- Documentation
+- Content Negotiation
+- Internationalization - i18n
+- Versioning
+- HATEOAS
+- Static and Dynamic Filtering
+- Monitoring
+
+REST API Documentation 
+- our REST API consumers need to understand our REST API 
+  - resources
+  - actions 
+  - request/response structure (constraints/validations)
+- Challenges:
+  - accuracy: how do you ensure that your documentation is up-to-date and correct?
+  - consistency: we might have 100s of REST API in an enterprise, how do we ensure consistency?
+- Options:
+  1) Manual maintenance
+    - additional effort to keep it in sync with code
+  2) generate from code
+
+Generating Documentation from our code: Swagger and Open API
+- irrespective of hte language we're making use of to develop our REST API
+- quick overview:
+  - 2011: Swagger specification and Swagger Tools introduced
+  - 2016: Open API Specification created based on Swagger Spec 
+  - OpenAPI Spec: Standard, langauge-agnostice interface
+    - discover and understand REST API
+    - earlier called Swagger Spec
+  - Swagger UI: Visualize and interact with our REST API 
+
+OpenAPI dependency
+<dependency>
+	<groupId>org.springdoc</groupId>
+	<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+	<version>2.0.0-M4</version>
+</dependency>
+- http://localhost:8080/swagger-ui/index.html
+
