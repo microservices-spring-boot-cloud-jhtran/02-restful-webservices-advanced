@@ -38,3 +38,23 @@ OpenAPI dependency
 </dependency>
 - http://localhost:8080/swagger-ui/index.html
 
+Content Negotiation
+- same resource - same URI
+  - however, different representations are possible
+    - example, XML or JSON
+    - example, different languages - Eng, German, Swedish
+  - how can a consumer tell the REST API provider what they want?
+    - Content Negotiation 
+  - example, Accept header (MIME types - application/xml, application/json, ...)
+  - example, Accept-Language header (en, nl, fr, ...)
+- The consumer tells the content provider what kind of representation they want 
+  - this is typically done using Request Headers 
+Add dependency:
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+- whenever a user adds an Accept - application/xml Header 
+  - we will automatically send back an XML response, no coding required!
+
+
