@@ -57,4 +57,12 @@ Add dependency:
 - whenever a user adds an Accept - application/xml Header 
   - we will automatically send back an XML response, no coding required!
 
+Internationalization - i18n
+- our REST API might have consumers from around the world
+- how do we customzie it to users around the world?
+  - i18n 
+- typically HTTP Request Header, Accept-Language is used:
+  - indicates natural language and locale that the consumer prefers
+
+
 
