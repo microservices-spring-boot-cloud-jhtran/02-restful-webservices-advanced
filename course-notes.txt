@@ -63,6 +63,8 @@ Internationalization - i18n
   - i18n 
 - typically HTTP Request Header, Accept-Language is used:
   - indicates natural language and locale that the consumer prefers
+1) define the messages somewhere
+2) write the code to pick up those values
 
 
 
